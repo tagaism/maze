@@ -37,8 +37,6 @@ function App() {
       updatedVisitedGrid[row][col] = 1;
 
 
-      console.log("from MOVE", visitedGrid)
-      console.log("from MOVE", dimension)
       if(row === dimension - 1 && col === dimension - 1) {
         console.log(row, col);
         setResolved(true);
@@ -54,10 +52,8 @@ function App() {
 
     move(0, 0)
     if(resolved) {
-      alert("maze solved!")
       console.log("maze solved!")
     } else {
-      alert("Has no solution, please reset.")
       console.log("not solved")
     }
   }
@@ -66,7 +62,6 @@ function App() {
   }
   
   useEffect(() => {
-    console.log("from useEffect", dimension);
     setMatrix(createMatrix());
     setVisitedGrid(
       Array.from({length: dimension},()=> Array.from({length: dimension}, () => 0))
@@ -76,12 +71,6 @@ function App() {
   
   return (
     <div className="App">
-      {
-        console.log(visitedGrid)
-      }
-      {
-        console.log(matrix)
-      }
       <Box sx={{
         flexGrow: 1,
         width: dimension * (41),
@@ -113,7 +102,6 @@ function App() {
                     item
                     style={{width: '35px'}}
                   >
-                    {console.log(visitedGrid[ind1][ind2])}
                     <Paper
                       style={{
                         backgroundColor: (resolved && visitedGrid[ind1][ind2] === 1 ? "#008000" : "#fff"),
